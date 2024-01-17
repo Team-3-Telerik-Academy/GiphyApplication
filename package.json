@@ -1,0 +1,13 @@
+{
+  "name": "web-team-project-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "live-server ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
