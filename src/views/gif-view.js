@@ -1,6 +1,6 @@
 import { renderFavoriteStatus } from '../events/favorites-events.js'
 
-export const toGifsView = (data) =>  `
+export const toGifsView = (data) => `
 <div class="gifs">
 ${data.map(toSingleGifView).join('\n')}
 </div>
