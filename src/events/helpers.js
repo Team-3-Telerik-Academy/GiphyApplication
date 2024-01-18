@@ -1,3 +1,4 @@
+import { SEARCH_INPUT } from "../common/constants.js";
 /**
  * Shorthand for document.querySelector
  * @param {string} selector 
@@ -23,3 +24,11 @@ export const setActiveNav = (page) => {
             : element.classList.remove('active')
         );
 };
+
+
+export const clearSearchInput = () => {
+    if (SEARCH_INPUT.value !== "") {
+      SEARCH_INPUT.value = "";
+    }
+  };
+

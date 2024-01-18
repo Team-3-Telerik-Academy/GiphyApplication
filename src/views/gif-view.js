@@ -10,7 +10,7 @@ const toSingleGifView = (gif) => `
 <div class="gifs-view" data-gif-id="${gif.id}">
     <img src="${gif.images.fixed_width.url}" class="gif-img" alt="">
     <div id="heart-box">
-    <span view-details-id='${gif.id}' id='view-details-span'>View Details</span>
+    <span view-details-id='${gif.id}' class='view-details-span'>View Details</span>
     ${renderFavoriteStatus(gif.id)}
     </div>
 </div>

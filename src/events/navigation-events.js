@@ -1,6 +1,7 @@
-import { FAVORITES, MAIN_SELECTOR, TRENDING, UPLOADED } from '../common/constants.js';
-import { loadTrendingGifs } from '../requests/request-service.js';
+import { FAVORITES, GET_GIF_BY_ID, MAIN_SELECTOR, TRENDING, UPLOADED } from '../common/constants.js';
+import { loadSingleGif, loadTrendingGifs } from '../requests/request-service.js';
 import { toGifsView } from '../views/gif-view.js';
+import { toGifDetailed } from '../views/single-gif-view.js';
 import { q, setActiveNav } from './helpers.js';
 
 export const loadPage = (page = '') => {
@@ -22,6 +23,12 @@ export const loadPage = (page = '') => {
 const renderTrending = async () => {
     const gifs = await loadTrendingGifs();
     q(MAIN_SELECTOR).innerHTML = toGifsView(gifs);
+}
+
+export const renderGifDetails = async (id) => {
+    const gif = await loadSingleGif(id);
+    console.log(gif)
+    q(MAIN_SELECTOR).innerHTML = toGifDetailed(gif);
 }
 
 // const renderFavorites = () => {
