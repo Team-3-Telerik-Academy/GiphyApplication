@@ -6,6 +6,9 @@ import { q } from "./helpers.js";
 
 export const renderSearchItemsWithShowMore = async (searchTerm, count = 1) => {
   const gifs = await loadSearchGifs(searchTerm, count);
+  if (gifs.length === 0) {
+    return q(MAIN_SELECTOR).innerHTML = toGifsView(gifs);
+  }
   q(MAIN_SELECTOR).innerHTML = toShowMoreGifsView(gifs);
 };
 
