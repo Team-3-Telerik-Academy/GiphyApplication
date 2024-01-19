@@ -303,6 +303,7 @@ div#mag-glass-box:hover {
 #main {
     display: flex;
     justify-content: center;
+    flex-grow: 1;
 }
 
 #upload-title {
@@ -385,4 +386,126 @@ div#mag-glass-box:hover {
     font-weight: bold;
     border-radius: 10px;
     background-color: #318ce7c0;
+}
+
+#no-uploads-yet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    padding: 25px;
+    border: dashed;
+}
+
+#plus {
+    color: rgb(58, 234, 164);
+    font-size: 70px;
+}
+
+#no-uploads-text {
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+#no-uploads-button {
+    background-color: #9c4eef;
+    width: 150px;
+    height: 45px;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
+
+.random-gif-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.no-fav-gif-text {
+    font-size: 25px;
+    color: white;
+}
+
+#fav-red {
+    color: rgb(255, 0, 149);
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.add-fav-gif-text {
+    color:white;
+    font-size: 27px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.success-content {
+    display:flex;
+    background: linear-gradient(to right, #318CE7, aqua);
+    flex-direction: column;
+    transition: background 0.5s ease;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    width: 30%;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.success-upload-text {
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: white;
+
+}
+
+.btn-to-uploaded-page {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #318ce7c0;
+    border: none;
+}
+
+.failed-upload-gif-content {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    height: 40vh;
+    width: 40%;
+    background: linear-gradient(to right, #318CE7, aqua);
+    transition: background 0.5s ease;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.failed-text-upload, .try-again-text{
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: white;
+}
+
+.failed-button-upload {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #318ce7c0;
+    border: none;
 }

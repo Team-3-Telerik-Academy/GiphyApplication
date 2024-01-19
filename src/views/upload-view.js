@@ -21,3 +21,4 @@ export const emptyUploadedView = () => `
         <button id="no-uploads-button">Upload Now</button>
     </div>
 `
+
