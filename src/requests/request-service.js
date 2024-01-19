@@ -1,12 +1,10 @@
 import {
-  API_TRENDING_URL,
-  GET_GIF_BY_ID,
-  RANDOM_API_URL,
+  GET_GIF_BY_ID, GET_TRENDING,
 } from "../common/constants.js";
 import { GET_GIFS_BY_SEARCH } from "../common/constants.js";
 
-export const loadTrendingGifs = async () => {
-  const response = await fetch(API_TRENDING_URL);
+export const loadTrendingGifs = async (count = 1) => {
+  const response = await fetch(GET_TRENDING(count));
 
   // if (!response.ok) {}
 
@@ -15,8 +13,8 @@ export const loadTrendingGifs = async () => {
   return data.data;
 };
 
-export const loadSearchGifs = async (searchTerm = "") => {
-  const data = await fetch(GET_GIFS_BY_SEARCH(searchTerm));
+export const loadSearchGifs = async (searchTerm, count) => {
+  const data = await fetch(GET_GIFS_BY_SEARCH(searchTerm, count));
   const response = await data.json();
 
   return response.data;

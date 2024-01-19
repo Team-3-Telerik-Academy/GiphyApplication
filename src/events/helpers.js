@@ -44,4 +44,3 @@ export const clearSearchInput = () => {
     SEARCH_INPUT.value = "";
   }
 };
-

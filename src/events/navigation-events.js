@@ -1,6 +1,5 @@
 import {
   FAVORITES,
-  GET_GIF_BY_ID,
   HOME,
   MAIN_SELECTOR,
   TRENDING,
@@ -19,6 +18,7 @@ import { emptyUploadedView, toUploadView } from "../views/upload-view.js";
 import { q, removeActiveNav, setActiveNav } from "./helpers.js";
 import { fetchGifsById, getUploads } from "./upload-events.js";
 import { toRandomGifView } from "../views/random-gif-view.js";
+import { toShowMoreGifsView } from "../views/gifs-content-view.js";
 
 export const loadPage = (page = "") => {
   switch (page) {
@@ -27,7 +27,7 @@ export const loadPage = (page = "") => {
       return renderHome();
     case TRENDING:
       setActiveNav(TRENDING);
-      return renderTrending();
+      return renderTrendingWithShowMore();
     case FAVORITES:
       setActiveNav(FAVORITES);
       return renderFavorites();
@@ -39,9 +39,9 @@ export const loadPage = (page = "") => {
   }
 };
 
-const renderTrending = async () => {
+const renderTrendingWithShowMore = async () => {
   const gifs = await loadTrendingGifs();
-  q(MAIN_SELECTOR).innerHTML = toGifsView(gifs);
+  q(MAIN_SELECTOR).innerHTML = toShowMoreGifsView(gifs);
 };
 
 const renderUploaded = async () => {
@@ -79,4 +79,9 @@ export const renderFavorites = async () => {
   } else {
     q(MAIN_SELECTOR).innerHTML = toGifsView(gifs);
   }
+};
+
+export const renderTrending = async (count = 2) => {
+  const gifs = await loadTrendingGifs(count);
+  q(MAIN_SELECTOR).innerHTML = toGifsView(gifs);
 };

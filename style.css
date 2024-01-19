@@ -6,6 +6,7 @@ body {
     background-color: rgba(0, 0, 0, 0.94);
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
     /* font-style: italic; */
 }
 
@@ -369,7 +370,7 @@ div#mag-glass-box:hover {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-image: url("/GiphyApplication/images/background-upload-page.jpg");
+    background-image: url("/images/background-upload-page.jpg");
 }
 
 #upload-file-input {
@@ -508,4 +509,14 @@ div#mag-glass-box:hover {
     border-radius: 10px;
     background-color: #318ce7c0;
     border: none;
+}
+
+footer {
+    color: white;
+    background-color: black;
+    text-align: center;
+    height: 30px;
+    margin-top: 10px;
+    font-weight: bold;
+    padding-top: 5px;
 }

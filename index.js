@@ -1,17 +1,17 @@
 import {
   loadPage,
   renderFavorites,
+  renderTrending,
   renderUploadPage,
 } from "./src/events/navigation-events.js";
-import { renderSearchItems } from "./src/events/search-events.js";
+import { renderSearchItems, renderSearchItemsWithShowMore } from "./src/events/search-events.js";
 import { q, removeActiveNav } from "./src/events/helpers.js";
-import { EMPTY_HEART, FAVORITES, HOME, SEARCH_INPUT, UPLOADED } from "./src/common/constants.js";
+import { EMPTY_HEART, HOME, SEARCH_INPUT, UPLOADED } from "./src/common/constants.js";
 import { clearSearchInput } from "./src/events/helpers.js";
 import { renderGifDetails } from "./src/events/navigation-events.js";
 import { postRequest } from "./src/events/upload-events.js";
 import { toggleFavoriteStatus } from "./src/events/favorites-events.js";
 import { removeFavorite } from "./src/data/favorites.js";
-
 
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", (event) => {
@@ -59,6 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
       heartSpan.innerHTML = EMPTY_HEART;
       renderFavorites();
     }
+
+    if (event.target.classList.contains("show-more-button")) {
+      if (event.target.id === 'show-more-trending') {
+        renderTrending();
+      } else if (event.target.id === 'show-more-search') {
+        renderSearchItems(SEARCH_INPUT.value, 2);
+      }
+    }
   });
 
   q("#uploadId").addEventListener("click", () => {
@@ -70,13 +78,13 @@ document.addEventListener("DOMContentLoaded", () => {
   SEARCH_INPUT.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
       removeActiveNav();
-      renderSearchItems(event.target.value);
+      renderSearchItemsWithShowMore(event.target.value);
     }
   });
 
   q("#magnifying-glass").addEventListener("click", () => {
     removeActiveNav();
-    renderSearchItems(SEARCH_INPUT.value);
+    renderSearchItemsWithShowMore(SEARCH_INPUT.value);
   });
 
   loadPage(HOME);
