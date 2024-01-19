@@ -23,6 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
       renderUploadPage();
       removeActiveNav();
     }
+
+    if (event.target.classList.contains("upload-btn")) {
+      document.getElementById('upload-file-input').click();
+      q("#upload-file-input").addEventListener('change', postRequest, false); //!!!!
+    }
+
   });
 
   q('#uploadId').addEventListener('click', () => {
@@ -31,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
     clearSearchInput();
   });
 
-  document.addEventListener('change', postRequest, false); //!!!!
+
+  
 
   SEARCH_INPUT.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {

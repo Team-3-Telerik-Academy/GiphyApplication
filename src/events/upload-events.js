@@ -6,6 +6,7 @@ let uploads = JSON.parse(localStorage.getItem('uploads')) || [];
 
 export const postRequest = async () => {
     const files = q('#upload-file-input').files;
+    console.log(files)
     const form = new FormData();
     form.append('file', files[0]);
 

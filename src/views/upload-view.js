@@ -1,13 +1,16 @@
 export const toUploadView = () => `
+<div class='background-content'>
 <div id="upload-content">
-        <span id="upload-title">GIPHY Upload</span>
+        <div id="upload-title"><span id="GIPHY"> GIPHY <span id="UPLOAD">Upload</span></div>
         <span id="upload-text">Upload your collection of GIFs</span>
         <div id="upload-box">
             <span id="gif-icon">GIF</span>
             <span id="gif-text">GIF</span>
             <span id="upload-type-of-gif-text">Upload a GIF, MP4, MOV, OR WebM.</span>
             <input type="file" name="upload-file" id="upload-file-input">
+            <label for="upload-file" id="uploadLabel" class="upload-btn"> Choose GIF</label>
         </div>
+    </div>
     </div>
 `
 

@@ -6,7 +6,7 @@ body {
     background-color: rgba(0, 0, 0, 0.94);
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 .container {
@@ -284,4 +284,105 @@ div#mag-glass-box:hover {
 
 #upload-content {
     background-color: #9c4eef;
+}
+
+
+#upload-content {
+    display:flex;
+    background: linear-gradient(to right, #318CE7, aqua);
+    flex-direction: column;
+    transition: background 0.5s ease;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 60%;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+}
+
+#upload-title {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#GIPHY {
+    font-size: 45px;
+}
+
+#UPLOAD {
+    font-size: 25px;
+}
+
+#upload-text {
+    font-size: 25px;
+    color: white;
+}
+
+#upload-box {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    height: 30vh;
+    align-items: center;
+    padding: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+#gif-icon {
+    background-color: white;
+    width: 50px;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 25px;
+    height: 36px;
+    text-align: center;
+    color: #318CE7;
+    margin-bottom: 10px;
+}
+
+#gif-text {
+    color:white;
+    font-size: 25px;
+}
+
+#upload-type-of-gif-text {
+    font-size: 20px;
+    color: white;
+    margin-top: 10px;
+}
+
+
+/* background for UPLOAD BUTTON */
+.background-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("/GiphyApplication/images/background-upload-page.jpg");
+}
+
+#upload-file-input {
+    display: none;
+}
+
+#uploadLabel {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #318ce7c0;
 }
