@@ -8,11 +8,9 @@ ${data.map(toSingleGifView).join('\n')}
 
 const toSingleGifView = (gif) => `
 <div class="gifs-view" data-gif-id="${gif.id}">
-    <img src="${gif.images.fixed_width.url}" class="gif-img" alt="">
+    <img src="${gif.images.fixed_width.url}" class="gif-img" id='${gif.id}' alt="${gif.title}">
     <div id="heart-box">
-    <span view-details-id='${gif.id}' class='view-details-span'>View Details</span>
     ${renderFavoriteStatus(gif.id)}
     </div>
 </div>
 `
-
