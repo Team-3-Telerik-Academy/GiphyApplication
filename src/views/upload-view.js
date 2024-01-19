@@ -10,3 +10,11 @@ export const toUploadView = () => `
         </div>
     </div>
 `
+
+export const emptyUploadedView = () => `
+    <div id="no-uploads-yet">
+        <span id="plus">+</span>
+        <span id="no-uploads-text">You haven't uploaded anything yet!</span>
+        <button id="no-uploads-button">Upload Now</button>
+    </div>
+`

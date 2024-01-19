@@ -1,5 +1,6 @@
 import { GET_GIF_BY_ID, UPLOAD_URL } from '../common/constants.js';
 import { q } from './helpers.js';
+import { renderUploadPage } from './navigation-events.js';
 
 let uploads = JSON.parse(localStorage.getItem('uploads')) || [];
 
@@ -18,6 +19,9 @@ export const postRequest = async () => {
 
     uploads.push(response.data.id);
     localStorage.setItem('uploads', JSON.stringify(uploads));
+
+    alert('Your gif was successfully uploaded!');
+    renderUploadPage();
 };
 
 export const fetchGifsById = async (gifId) => {
