@@ -1,10 +1,8 @@
-import {
-  GET_GIF_BY_ID, GET_TRENDING,
-} from "../common/constants.js";
-import { GET_GIFS_BY_SEARCH } from "../common/constants.js";
+import { GET_GIF_BY_ID, GET_TRENDING, RANDOM_API_URL } from '../common/constants.js';
+import { GET_GIFS_BY_SEARCH } from '../common/constants.js';
 
-export const loadTrendingGifs = async (count = 1) => {
-  const response = await fetch(GET_TRENDING(count));
+export const loadTrendingGifs = async (counter = 1) => {
+  const response = await fetch(GET_TRENDING(counter));
 
   // if (!response.ok) {}
 
@@ -28,7 +26,7 @@ export const loadSingleGif = async (id) => {
 };
 
 export const loadRandomGif = async () => {
-  const data = await fetch('https://api.giphy.com/v1/gifs/random?api_key=q2ZSzq8dzG1pb1zcDaVaoyORSB2zb76M&tag=&rating=g');
+  const data = await fetch(RANDOM_API_URL);
   const response = await data.json();
   
   return response.data;

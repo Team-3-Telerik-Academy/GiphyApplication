@@ -1,4 +1,5 @@
-import { SEARCH_INPUT } from "../common/constants.js";
+import { SEARCH_INPUT } from '../common/constants.js';
+
 /**
  * Shorthand for document.querySelector
  * @param {string} selector 
@@ -31,7 +32,7 @@ export const removeActiveNav = () => {
     .from(navs)
     .forEach(element => {
       if (element
-        .classList.contains("active")) {
+        .classList.contains('active')) {
         element.classList.remove('active');
       }
     }
@@ -40,7 +41,15 @@ export const removeActiveNav = () => {
 
 
 export const clearSearchInput = () => {
-  if (SEARCH_INPUT.value !== "") {
-    SEARCH_INPUT.value = "";
+  if (SEARCH_INPUT.value !== '') {
+    SEARCH_INPUT.value = '';
   }
 };
+
+// export const hideUpperBar = () => {
+//   q('#upper-content').style.display = 'none';
+// };
+
+// export const showUpperBar = () => {
+//   q('#upper-content').style.display = 'block';
+// };

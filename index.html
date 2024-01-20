@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GIPHY</title>
-    <link rel="icon" href="./images/giphy-favicon.svg" type="image/x-icon" />
-    <link rel="shortcut icon" href="./images/giphy-favicon.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIPHY</title>
+  <link rel="icon" href="./images/giphy-favicon.svg" type="image/x-icon" />
+  <link rel="shortcut icon" href="./images/giphy-favicon.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="./src/styles/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div id="upper-content">
       <div class="header">
         <div id="iconBox">
-          <img
-            class="nav-link"
-            data-page="giphy"
-            src="./images/giphy.png"
-            alt=""
-          />
+          <img class="nav-link" data-page="giphy" src="./images/giphy.png" alt="GIPHY Icon" />
           <span class="giphyText nav-link" data-page="giphy">GIPHY</span>
         </div>
-        <a href="#" class="nav-link" data-page="trending" id="trending"
-          >Trending</a
-        >
-        <a href="#" class="nav-link" data-page="favorites" id="favorites"
-          >Favorites</a
-        >
-        <a href="#" class="nav-link" data-page="uploaded" id="uploaded"
-          >Uploaded</a
-        >
+        <a href="#" class="nav-link" data-page="trending" id="trending">Trending</a>
+        <a href="#" class="nav-link" data-page="favorites" id="favorites">Favorites</a>
+        <a href="#" class="nav-link" data-page="uploaded" id="uploaded">Uploaded</a>
         <label id="uploadId">Upload GIF</label>
       </div>
       <div class="searchBox">
         <input type="text" placeholder="Search for GIFs" id="searchInput" />
         <div id="mag-glass-box">
-          <img src="images/magnifying-glass.svg" alt="" id="magnifying-glass" />
+          <img src="images/magnifying-glass.svg" alt="Search" id="magnifying-glass" />
         </div>
       </div>
-      <div id="main"></div>
-      <footer>Copyright by Naydenov & Demostenova</footer>
     </div>
-    <script type="module" src="./index.js"></script>
-  </body>
+    <div id="main"></div>
+    <footer>Copyright © Naydenov & Demostenova</footer>
+  </div>
+  <script type="module" src="./src/index.js"></script>
+</body>
+
 </html>

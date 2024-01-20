@@ -8,11 +8,11 @@ export const toUploadView = () => `
             <span id="gif-text">GIF</span>
             <span id="upload-type-of-gif-text">Upload a GIF, MP4, MOV, OR WebM.</span>
             <input type="file" name="upload-file" id="upload-file-input">
-            <label for="upload-file" id="uploadLabel" class="upload-btn"> Choose GIF</label>
+            <label for="upload-file" id="uploadLabel" class="upload-btn">Choose GIF</label>
         </div>
     </div>
     </div>
-`
+`;
 
 export const emptyUploadedView = () => `
     <div id="no-uploads-yet">
@@ -20,5 +20,4 @@ export const emptyUploadedView = () => `
         <span id="no-uploads-text">You haven't uploaded anything yet!</span>
         <button id="no-uploads-button">Upload Now</button>
     </div>
-`
-
+`;

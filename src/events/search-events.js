@@ -1,8 +1,8 @@
-import { MAIN_SELECTOR } from "../common/constants.js";
-import { loadSearchGifs } from "../requests/request-service.js";
-import { toGifsView } from "../views/gif-view.js";
-import { toShowMoreGifsView } from "../views/gifs-content-view.js";
-import { q } from "./helpers.js";
+import { MAIN_SELECTOR } from '../common/constants.js';
+import { loadSearchGifs } from '../requests/request-service.js';
+import { toGifsView } from '../views/gif-view.js';
+import { toShowMoreGifsView } from '../views/gifs-show-more-view.js';
+import { q } from './helpers.js';
 
 export const renderSearchItemsWithShowMore = async (searchTerm, count = 1) => {
   const gifs = await loadSearchGifs(searchTerm, count);
