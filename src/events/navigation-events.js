@@ -1,19 +1,16 @@
 import { FAVORITES, MAIN_SELECTOR, TRENDING, UPLOADED } from '../common/constants.js';
 import { getFavorites } from '../data/favorites.js';
-import { loadRandomGif, loadSingleGif, loadTrendingGifs } from '../requests/request-service.js';
+import { loadGifById, loadRandomGif, loadSingleGif, loadTrendingGifs } from '../requests/request-service.js';
 import { toGifsView } from '../views/gif-view.js';
 import { toGifDetailed } from '../views/single-gif-view.js';
 import { emptyUploadedView, toUploadView } from '../views/upload-view.js';
 import { q, setActiveNav } from './helpers.js';
-import { fetchGifsById, getUploads } from './upload-events.js';
+import { getUploads } from './upload-events.js';
 import { toRandomGifView } from '../views/random-gif-view.js';
-import { toShowMoreGifsView } from '../views/gifs-show-more-view.js';
+import { toShowMoreTrendingGifsView } from '../views/gifs-show-more-view.js';
 
 export const loadPage = (page = '') => {
   switch (page) {
-  // case HOME:
-  //   hideUpperBar();
-  //   return renderHome();
   case TRENDING:
     setActiveNav(TRENDING);
     return renderTrendingWithShowMore();
@@ -28,18 +25,14 @@ export const loadPage = (page = '') => {
   }
 };
 
-// const renderHome = () => {
-//   q(MAIN_SELECTOR).innerHTML = toHomeView();
-// };
-
 const renderTrendingWithShowMore = async (counter = 1) => {
   const gifs = await loadTrendingGifs(counter);
-  q(MAIN_SELECTOR).innerHTML = toShowMoreGifsView(gifs);
+  q(MAIN_SELECTOR).innerHTML = toShowMoreTrendingGifsView(gifs);
 };
 
 export const renderFavorites = async () => {
   const favorites = getFavorites();
-  const gifs = await Promise.all(favorites.map(fetchGifsById));
+  const gifs = await Promise.all(favorites.map(loadGifById));
 
   if (gifs.length === 0) {
     const randomGif = await loadRandomGif();
@@ -51,7 +44,7 @@ export const renderFavorites = async () => {
 
 const renderUploaded = async () => {
   const gifsId = getUploads();
-  const gifs = await Promise.all(gifsId.map(fetchGifsById));
+  const gifs = await Promise.all(gifsId.map(loadGifById));
 
   if (gifs.length === 0) {
     q(MAIN_SELECTOR).innerHTML = emptyUploadedView();
@@ -70,7 +63,7 @@ export const renderGifDetails = async (id) => {
   q(MAIN_SELECTOR).innerHTML = toGifDetailed(gif);
 };
 
-// Without the button Show More
+// Trending without the button Show More
 export const renderTrending = async (counter = 2) => {
   const gifs = await loadTrendingGifs(counter);
   q(MAIN_SELECTOR).innerHTML = toGifsView(gifs);

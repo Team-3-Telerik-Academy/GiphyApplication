@@ -1,4 +1,4 @@
-import { GET_GIF_BY_ID, MAIN_SELECTOR, UPLOAD_URL } from '../common/constants.js';
+import { MAIN_SELECTOR, UPLOAD_URL } from '../common/constants.js';
 import { failedUploadGifView, successfullyUploadedView } from '../views/upload-status-view.js';
 import { q } from './helpers.js';
 
@@ -27,13 +27,6 @@ const renderUploadStatus = (response) => {
   } else {
     q(MAIN_SELECTOR).innerHTML = failedUploadGifView();
   }
-};
-
-export const fetchGifsById = async (gifId) => {
-  const response = await fetch(GET_GIF_BY_ID(gifId));
-  const data = await response.json();
-
-  return data.data;
 };
 
 export const getUploads = () => [...uploads];

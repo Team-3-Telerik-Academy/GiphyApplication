@@ -31,3 +31,10 @@ export const loadRandomGif = async () => {
   
   return response.data;
 };
+
+export const loadGifById = async (gifId) => {
+  const response = await fetch(GET_GIF_BY_ID(gifId));
+  const data = await response.json();
+
+  return data.data;
+};

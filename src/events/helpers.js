@@ -45,11 +45,3 @@ export const clearSearchInput = () => {
     SEARCH_INPUT.value = '';
   }
 };
-
-// export const hideUpperBar = () => {
-//   q('#upper-content').style.display = 'none';
-// };
-
-// export const showUpperBar = () => {
-//   q('#upper-content').style.display = 'block';
-// };

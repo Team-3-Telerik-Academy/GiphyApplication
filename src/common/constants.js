@@ -1,7 +1,5 @@
 import { q } from '../events/helpers.js';
 
-export const HOME = 'giphy';
-
 export const TRENDING = 'trending';
 
 export const FAVORITES = 'favorites';

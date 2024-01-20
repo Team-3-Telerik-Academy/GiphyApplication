@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('click', (event) => {
 
-    // nav-events: GIPHY, Trending, Favorites, Uploaded
+    // nav-events: Trending, Favorites, Uploaded
     if (event.target.classList.contains('nav-link')) {
       loadPage(event.target.getAttribute('data-page'));
       clearSearchInput();
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       removeActiveNav();
     }
 
-    // Upload Now button when you have no uploads yet
+    // Upload Now button when you have no uploads yet on Uploaded page
     if (event.target.id === 'no-uploads-button') {
       renderUploadPage();
       removeActiveNav();
