@@ -26,3 +26,9 @@ export const RANDOM_API_URL = 'https://api.giphy.com/v1/gifs/random?api_key=q2ZS
 export const UPLOAD_URL = `https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`;
 
 export const SEARCH_INPUT = q('#searchInput');
+
+export const CONTAINER = '.container'
+
+export const BUTTON_SWITCH_THEMES = '.btn-theme'
+
+export const FOOTER = '.footer';
