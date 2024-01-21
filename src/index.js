@@ -24,12 +24,11 @@ import {
   toDarkTheme,
   toLightTheme,
 } from "./views/container-light-dark-theme.js";
-
-
+import { fetchEmojis } from "./events/emojis-event.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", (event) => {
-    // nav-events: Trending, Favorites, Uploaded
+    // nav-events: Trending, Favorites, Uploaded, Emojis
     if (event.target.classList.contains("nav-link")) {
       loadPage(event.target.getAttribute("data-page"));
       clearSearchInput();
@@ -91,16 +90,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-   
     // Change theme color
     if (event.target.getAttribute("data-btn-theme") === "theme-button") {
-      if (!(event.target.classList.contains("sun"))) {
-        event.target.classList.add('sun')
+      if (!event.target.classList.contains("sun")) {
+        event.target.classList.add("sun");
         toLightTheme();
-      } else if ((event.target.classList.contains("sun"))) {
-        event.target.classList.remove('sun')
+      } else if (event.target.classList.contains("sun")) {
+        event.target.classList.remove("sun");
         toDarkTheme();
       }
+    }
+
+
+    // Loading emojis  
+    if (event.target.classList.contains("nav-link")) {
+      loadPage(event.target.getAttribute('data-page'))
     }
   });
 

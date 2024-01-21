@@ -1,27 +1,42 @@
-import { FAVORITES, MAIN_SELECTOR, TRENDING, UPLOADED } from '../common/constants.js';
-import { getFavorites } from '../data/favorites.js';
-import { loadGifById, loadRandomGif, loadSingleGif, loadTrendingGifs } from '../requests/request-service.js';
-import { toGifsView } from '../views/gif-view.js';
-import { toGifDetailed } from '../views/single-gif-view.js';
-import { emptyUploadedView, toUploadView } from '../views/upload-view.js';
-import { q, setActiveNav } from './helpers.js';
-import { getUploads } from './upload-events.js';
-import { toRandomGifView } from '../views/random-gif-view.js';
-import { toShowMoreTrendingGifsView } from '../views/gifs-show-more-view.js';
+import {
+  EMOJIS,
+  FAVORITES,
+  MAIN_SELECTOR,
+  TRENDING,
+  UPLOADED,
+} from "../common/constants.js";
+import { getFavorites } from "../data/favorites.js";
+import {
+  loadGifById,
+  loadRandomGif,
+  loadSingleGif,
+  loadTrendingGifs,
+} from "../requests/request-service.js";
+import { toGifsView } from "../views/gif-view.js";
+import { toGifDetailed } from "../views/single-gif-view.js";
+import { emptyUploadedView, toUploadView } from "../views/upload-view.js";
+import { q, setActiveNav } from "./helpers.js";
+import { getUploads } from "./upload-events.js";
+import { toRandomGifView } from "../views/random-gif-view.js";
+import { toShowMoreTrendingGifsView } from "../views/gifs-show-more-view.js";
+import { fetchEmojis } from "./emojis-event.js";
 
-export const loadPage = (page = '') => {
+export const loadPage = (page = "") => {
   switch (page) {
-  case TRENDING:
-    setActiveNav(TRENDING);
-    return renderTrendingWithShowMore();
-  case FAVORITES:
-    setActiveNav(FAVORITES);
-    return renderFavorites();
-  case UPLOADED:
-    setActiveNav(UPLOADED);
-    return renderUploaded();
-  default:
-    return null;
+    case TRENDING:
+      setActiveNav(TRENDING);
+      return renderTrendingWithShowMore();
+    case FAVORITES:
+      setActiveNav(FAVORITES);
+      return renderFavorites();
+    case UPLOADED:
+      setActiveNav(UPLOADED);
+      return renderUploaded();
+    case EMOJIS:
+      setActiveNav(EMOJIS);
+      return renderEmojis();
+    default:
+      return null;
   }
 };
 
@@ -67,4 +82,10 @@ export const renderGifDetails = async (id) => {
 export const renderTrending = async (counter = 2) => {
   const gifs = await loadTrendingGifs(counter);
   q(MAIN_SELECTOR).innerHTML = toGifsView(gifs);
+};
+
+// Showing emojis
+export const renderEmojis = async () => {
+  const emojis = await fetchEmojis();
+  q(MAIN_SELECTOR).innerHTML = toGifsView(emojis);
 };
