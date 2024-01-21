@@ -1,8 +1,14 @@
 import { renderFavoriteStatus } from '../events/favorites-events.js';
 
+// added show more button
 export const toGifsView = (data) => `
+<div id='show-more-and-gifs'>
 <div class="gifs">
 ${data.map(toSingleGifView).join('\n')}
+</div>
+<div class='show-more-button-container show-more-button-active'>
+    <button class='show-more-button'>Show More</button>
+</div>
 </div>
 `;
 

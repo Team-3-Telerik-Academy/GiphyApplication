@@ -39,9 +39,20 @@ export const removeActiveNav = () => {
     );
 };
 
-
 export const clearSearchInput = () => {
   if (SEARCH_INPUT.value !== '') {
     SEARCH_INPUT.value = '';
   }
 };
+
+export const showCategoriesMenu = () => {
+  q("#myDropdown").classList.add("show");
+}
+
+export const hideCategoriesMenu = () => {
+  q("#myDropdown").classList.remove("show");
+}
+
+export const removeActiveShowMoreButton = () => {
+  q('.show-more-button-container').classList.remove('show-more-button-active');
+}

@@ -1,17 +1,21 @@
 import {
   loadPage,
   renderFavorites,
-  renderTrending,
   renderUploadPage,
 } from "./events/navigation-events.js";
 import {
   renderSearchItems,
-  renderSearchItemsWithShowMore,
 } from "./events/search-events.js";
-import { q, removeActiveNav } from "./events/helpers.js";
+import { hideCategoriesMenu, q, removeActiveNav, showCategoriesMenu } from "./events/helpers.js";
 import {
+  ANIMALS,
+  CATEGORIES,
+  EMOJIS,
   EMPTY_HEART,
+  FOOD,
+  GAMING,
   SEARCH_INPUT,
+  SHOW_25_MORE,
   TRENDING,
   UPLOADED,
 } from "./common/constants.js";
@@ -24,11 +28,12 @@ import {
   toDarkTheme,
   toLightTheme,
 } from "./views/container-light-dark-theme.js";
-import { fetchEmojis } from "./events/emojis-event.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+
   document.addEventListener("click", (event) => {
-    // nav-events: Trending, Favorites, Uploaded, Emojis
+
+    // nav-events: Trending, Favorites, Uploaded, Emojis, Categories from the falling menu
     if (event.target.classList.contains("nav-link")) {
       loadPage(event.target.getAttribute("data-page"));
       clearSearchInput();
@@ -81,12 +86,20 @@ document.addEventListener("DOMContentLoaded", () => {
       renderFavorites();
     }
 
-    // Show More Gifs button on Trending and Search pages
+    // Show More Gifs button on Trending, Categories, Emojis and Search pages
     if (event.target.classList.contains("show-more-button")) {
-      if (event.target.id === "show-more-trending") {
-        renderTrending();
-      } else if (event.target.id === "show-more-search") {
-        renderSearchItems(SEARCH_INPUT.value, 2);
+      if (q('#trending').classList.contains('active')) {
+        loadPage(TRENDING, SHOW_25_MORE);
+      } else if (q('#animals').classList.contains('active')) {
+        loadPage(ANIMALS, SHOW_25_MORE);
+      } else if (q('#food').classList.contains('active')) {
+        loadPage(FOOD, SHOW_25_MORE);
+      } else if (q('#gaming').classList.contains('active')) {
+        loadPage(GAMING, SHOW_25_MORE);
+      } else if (q('#emojis').classList.contains('active')) {
+        loadPage(EMOJIS, SHOW_25_MORE);
+      } else if (event.target.classList.contains("show-more-search")) {
+        renderSearchItems(SEARCH_INPUT.value, SHOW_25_MORE);
       }
     }
 
@@ -100,7 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
         toDarkTheme();
       }
     }
-
 
     // Loading emojis  
     if (event.target.classList.contains("nav-link")) {
@@ -118,15 +130,32 @@ document.addEventListener("DOMContentLoaded", () => {
   // Search bar when pressing ENTER
   SEARCH_INPUT.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
-      renderSearchItemsWithShowMore(event.target.value);
+      renderSearchItems(event.target.value);
       removeActiveNav();
     }
   });
 
   // Search bar when pressing the button
   q("#magnifying-glass").addEventListener("click", () => {
-    renderSearchItemsWithShowMore(SEARCH_INPUT.value);
+    renderSearchItems(SEARCH_INPUT.value);
     removeActiveNav();
+  });
+
+  // Categories Falling Menu
+  q(CATEGORIES).addEventListener('mouseover', () => {
+    showCategoriesMenu();
+  });
+
+  q(CATEGORIES).addEventListener('mouseout', () => {
+    hideCategoriesMenu();
+  });
+
+  q('.dropdown-content').addEventListener('mouseover', () => {
+    showCategoriesMenu();
+  });
+
+  q('.dropdown-content').addEventListener('mouseout', () => {
+    hideCategoriesMenu();
   });
 
   loadPage(TRENDING);

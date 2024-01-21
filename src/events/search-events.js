@@ -1,18 +1,17 @@
-import { MAIN_SELECTOR } from "../common/constants.js";
+import { MAIN_SELECTOR, SHOW_25_MORE } from "../common/constants.js";
 import { loadSearchGifs } from "../requests/request-service.js";
 import { toGifsView } from "../views/gif-view.js";
-import { toShowMoreSearchGifsView } from "../views/gifs-show-more-view.js";
-import { q } from "./helpers.js";
+import { q, removeActiveShowMoreButton } from "./helpers.js";
 
-export const renderSearchItemsWithShowMore = async (searchTerm, count = 1) => {
-  const gifs = await loadSearchGifs(searchTerm, count);
-  if (gifs.length === 0) {
-    return (q(MAIN_SELECTOR).innerHTML = toGifsView(gifs));
-  }
-  q(MAIN_SELECTOR).innerHTML = toShowMoreSearchGifsView(gifs);
-};
 
-export const renderSearchItems = async (searchTerm, count = 1) => {
-  const gifs = await loadSearchGifs(searchTerm, count);
+export const renderSearchItems = async (searchTerm, limit = 25) => {
+  const gifs = await loadSearchGifs(searchTerm, limit);
+
   q(MAIN_SELECTOR).innerHTML = toGifsView(gifs);
+  q('.show-more-button').classList.add('show-more-search');
+
+  if (limit === SHOW_25_MORE || gifs.length === 0) {
+    removeActiveShowMoreButton();
+    q('.show-more-button').classList.remove('show-more-search');
+  }
 };
