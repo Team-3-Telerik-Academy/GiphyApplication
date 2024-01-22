@@ -35,7 +35,7 @@ const ratingExist = (gif) => `<span class="gif-rating">Rating: ${gif.rating ? gi
  *  },
  *  user: {
  *    avatar_url: string,
- *    username: string,
+ *    display_name: string,
  *  }
  * }>} gif - The gif object to transform.
  * 

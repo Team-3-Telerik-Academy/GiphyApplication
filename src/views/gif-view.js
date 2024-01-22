@@ -14,7 +14,7 @@ import { renderFavoriteStatus } from '../events/favorites-events.js';
  *  },
  * user: {
  *  avatar_url: string,
- *  username: string,
+ *  display_name: string,
  * }
  * }>} data - An array of GIF objects.
  * @returns {string} A string of HTML that represents a view of multiple GIFs.
@@ -45,7 +45,7 @@ ${data.map(toSingleGifView).join('\n')}
  *  },
  * user: {
  *  avatar_url: string,
- *  username: string,
+ *  display_name: string,
  * }
  * }} gif - A GIF object.
  * @returns {string} A string of HTML that represents a view of a single GIF.

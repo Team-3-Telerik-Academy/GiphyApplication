@@ -14,7 +14,7 @@ import { EMPTY_HEART } from '../common/constants.js';
  *  },
  *  user: {
  *    avatar_url: string,
- *    username: string,
+ *    display_name: string,
  *  }
  * }>} gif - The gif object to transform.
  * 
