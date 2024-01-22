@@ -313,7 +313,6 @@ div#mag-glass-box:hover {
 
 #upload-content {
     display: flex;
-    /* background: linear-gradient(to right, #318ce7, rgb(0, 255, 255)); */
     background: linear-gradient(to right, #9c4eef8f, rgba(0, 255, 255, 0.548), rgba(255, 179, 0, 0.526));
     flex-direction: column;
     transition: background 0.5s ease;
@@ -329,7 +328,7 @@ div#mag-glass-box:hover {
     display: flex;
     justify-content: center;
     flex-grow: 1;
-    /* margin-bottom: 7vh; */
+    margin-bottom: 6.5vh;
 }
 
 #upload-title {
@@ -372,7 +371,6 @@ div#mag-glass-box:hover {
     font-size: 25px;
     height: 36px;
     text-align: center;
-    /* color: #318CE7; */
     color: rgba(6, 15, 82, 0.767);
     margin-bottom: 10px;
 }
@@ -394,7 +392,6 @@ div#mag-glass-box:hover {
 #home-background-image {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     height: 80vh;
     width: 100vw;
     /* background-image: url("/images/background-upload-page.jpg"); */
@@ -413,7 +410,6 @@ div#mag-glass-box:hover {
     color: white;
     font-weight: bold;
     border-radius: 10px;
-    /* background-color: #318ce7c0; */
     background-color: rgba(6, 15, 82, 0.767);
 }
 
@@ -570,7 +566,6 @@ div#mag-glass-box:hover {
     font-size: 25px;
     font-weight: bold;
     margin: 15px 0px;
-    /* margin-bottom: 90px; */
 }
 
 .show-more-button:hover {
@@ -616,10 +611,9 @@ div#mag-glass-box:hover {
     width: 110px;
     height: 35px;
     gap: 10px;
-    /* margin-left: 100px; */
     position: absolute;
-    right: 4.5%;
-    top: 2.5%;
+    right: 40px;
+    top: 38px;
 }
 
 .btn-box-theme {
@@ -669,10 +663,8 @@ div#mag-glass-box:hover {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     width: 120px;
-    border-top: 1vh solid transparent;
-    /* margin-top: 0.3vh; */
     border-bottom-right-radius: 5px;
-    border-bottom-left-radius:5px;
+    border-bottom-left-radius: 5px;
 }
 
 .dropdown-content a {
@@ -692,11 +684,38 @@ div#mag-glass-box:hover {
     display: block;
 }
 
-#animals, #food, #gaming {
+#animals,
+#food,
+#gaming {
     width: 120px;
 }
 
 #gaming {
     border-bottom-right-radius: 5px;
-    border-bottom-left-radius:5px; 
+    border-bottom-left-radius: 5px;
+}
+
+#snail-loading {
+    height: 30vh;
+    width: 30vh;
+}
+
+#loading-upload-text {
+    width: 27vh;
+    font-weight: bold;
+    font-size: 5vh;
+    text-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.337);
+    background: linear-gradient(80deg, #9c4eef, rgb(0, 255, 255), rgb(255, 179, 0));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(0, 0, 0, 0);
+}
+
+#img-text-loading-upload {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    text-align: center;
 }

@@ -7,6 +7,7 @@ import { SEARCH_INPUT } from '../common/constants.js';
  */
 export const q = (selector) => document.querySelector(selector);
 
+
 /**
  * Shorthand for document.querySelectorAll
  * @param {string} selector 
@@ -14,6 +15,12 @@ export const q = (selector) => document.querySelector(selector);
  */
 export const qs = (selector) => document.querySelectorAll(selector);
 
+
+/**
+ * Sets the active navigation element based on the provided page.
+ *
+ * @param {string} page - The page to set as active.
+ */
 export const setActiveNav = (page) => {
   const navs = qs('a.nav-link');
 
@@ -26,6 +33,10 @@ export const setActiveNav = (page) => {
     );
 };
 
+
+/**
+ * Removes the 'active' class from all navigation elements.
+ */
 export const removeActiveNav = () => {
   const navs = qs('a.nav-link');
   Array
@@ -39,20 +50,36 @@ export const removeActiveNav = () => {
     );
 };
 
+
+/**
+ * Clears the search input field.
+ */
 export const clearSearchInput = () => {
   if (SEARCH_INPUT.value !== '') {
     SEARCH_INPUT.value = '';
   }
 };
 
+
+/**
+ * Shows the categories menu.
+ */
 export const showCategoriesMenu = () => {
-  q("#myDropdown").classList.add("show");
-}
+  q('#myDropdown').classList.add('show');
+};
 
+
+/**
+ * Hides the categories menu.
+ */
 export const hideCategoriesMenu = () => {
-  q("#myDropdown").classList.remove("show");
-}
+  q('#myDropdown').classList.remove('show');
+};
 
+
+/**
+ * Removes the 'show-more-button-active' class from the 'show-more-button-container' element.
+ */
 export const removeActiveShowMoreButton = () => {
   q('.show-more-button-container').classList.remove('show-more-button-active');
-}
+};

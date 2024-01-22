@@ -1,3 +1,8 @@
+/**
+ * Returns an HTML string representing a successful upload view.
+ * 
+ * @returns {string} The HTML string representation of the successful upload view.
+ */
 export const successfullyUploadedView = () => `
 <div class="success-content">
   <div class="success-upload-text">Your GIF has been successfully uploaded!</div>
@@ -7,6 +12,11 @@ export const successfullyUploadedView = () => `
 `;
 
 
+/**
+ * Returns an HTML string representing a failed upload view.
+ * 
+ * @returns {string} The HTML string representation of the failed upload view.
+ */
 export const failedUploadGifView = () => `
 <div class="failed-upload-gif-content">
   <span class="failed-text-upload">Gif couldn't be uploaded!</span>

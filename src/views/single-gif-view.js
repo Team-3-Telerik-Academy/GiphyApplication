@@ -1,12 +1,46 @@
 import { renderFavoriteStatus } from '../events/favorites-events.js';
 
+/**
+ * Checks if a user exists for the gif and returns the appropriate HTML string.
+ * 
+ * @param {Object} gif - The gif object to check.
+ * @returns {string} The HTML string representation of the user.
+ */
 const userNameExist = (gif) => {
   return gif.user ? `<img src="${gif.user.avatar_url}" id = "user-avatar" alt="">
     <span id = 'display-username'>${gif.user.display_name}</span>` : '<span id = \'display-username\'>Uploaded by: Unknown user </span>';
 };
 
+
+/**
+ * Checks if a rating exists for the gif and returns the appropriate HTML string.
+ * 
+ * @param {Object} gif - The gif object to check.
+ * @returns {string} The HTML string representation of the rating.
+ */
 const ratingExist = (gif) => `<span class="gif-rating">Rating: ${gif.rating ? gif.rating : 'Unrated'}</span>`;
 
+
+/**
+ * Transforms a gif object into a detailed viewable HTML string.
+ * 
+ * @param {Array<{
+ *  id: string,
+ *  rating: string,
+ *  title: string,
+ *  images: {
+ *    fixed_width: {
+ *      url: string,
+ *    },
+ *  },
+ *  user: {
+ *    avatar_url: string,
+ *    username: string,
+ *  }
+ * }>} gif - The gif object to transform.
+ * 
+ * @returns {string} The HTML string representation of the gif.
+ */
 export const toGifDetailed = (gif) => `
     <div id="to-single-gif-view">
     <div class="gif-content-left">
