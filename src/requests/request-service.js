@@ -9,8 +9,13 @@ import { GET_GIFS_BY_SEARCH } from '../common/constants.js';
  */
 export const loadTrendingGifs = async (limit = 25) => {
   const response = await fetch(GET_TRENDING(limit));
-  const data = await response.json();
-  return data.data;
+
+  if (response.ok) {
+    const data = await response.json();
+    return data.data;
+  } else {
+    return 'Unsuccessful operation! From loadTrendingGIfs function.';
+  }
 };
 
 
@@ -23,8 +28,13 @@ export const loadTrendingGifs = async (limit = 25) => {
  */
 export const loadSearchGifs = async (searchTerm, limit = 25) => {
   const data = await fetch(GET_GIFS_BY_SEARCH(searchTerm, limit));
-  const response = await data.json();
-  return response.data;
+
+  if (data.ok) {
+    const response = await data.json();
+    return response.data;
+  } else {
+    return 'Unsuccessful operation! From loadSearchGifs function.';
+  }
 };
 
 
@@ -36,8 +46,13 @@ export const loadSearchGifs = async (searchTerm, limit = 25) => {
  */
 export const loadSingleGif = async (id) => {
   const data = await fetch(GET_GIF_BY_ID(id));
-  const response = await data.json();
-  return response.data;
+
+  if (data.ok) {
+    const response = await data.json();
+    return response.data;
+  } else {
+    return 'Unsuccessful operation! From loadSingleGif function.';
+  }
 };
 
 
@@ -48,8 +63,13 @@ export const loadSingleGif = async (id) => {
  */
 export const loadRandomGif = async () => {
   const data = await fetch(RANDOM_API_URL);
-  const response = await data.json();
-  return response.data;
+
+  if (data.ok) {
+    const response = await data.json();
+    return response.data;
+  } else {
+    return 'Unsuccessful operation! From loadRandomGif function.';
+  }
 };
 
 
@@ -61,6 +81,7 @@ export const loadRandomGif = async () => {
  */
 export const loadGifById = async (gifId) => {
   const response = await fetch(GET_GIF_BY_ID(gifId));
+
   if (response.ok) {
     const data = await response.json();
     return data.data;
@@ -78,6 +99,11 @@ export const loadGifById = async (gifId) => {
  */
 export const loadEmojis = async (limit = 25) => {
   const response = await fetch(GET_EMOJIS(limit));
-  const data = await response.json();
-  return data.data;
+
+  if (response.ok) {
+    const data = await response.json();
+    return data.data;
+  } else {
+    return 'Unsuccessful operation! From loadRandomGif function.';
+  }
 };

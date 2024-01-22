@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Choose GIF button on the Upload page
     if (event.target.classList.contains('upload-btn')) {
       document.getElementById('upload-file-input').click();
-      q('#upload-file-input').addEventListener('change', postRequest, false);
+      q('#upload-file-input').addEventListener('change', postRequest);
     }
 
     // Favorite Heart
